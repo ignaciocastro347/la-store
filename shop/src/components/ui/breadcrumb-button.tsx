@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { Image } from '@/components/ui/image';
+import Image from 'next/image';
 import { productPlaceholder } from '@/lib/placeholders';
 
 interface BreadcrumbButtonProps {

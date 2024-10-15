@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
-import { ExpandLessIcon } from '@/components/icons/expand-less-icon';
-import { ExpandMoreIcon } from '@/components/icons/expand-more-icon';
+import ExpandLessIcon from '@/components/icons/expand-less-icon';
+import ExpandMoreIcon from '@/components/icons/expand-more-icon';
 import { getIcon } from '@/lib/get-icon';
 import * as CategoryIcons from '@/components/icons/category';
 import { useEffect, useState } from 'react';

@@ -1,6 +1,6 @@
 import BakeryCategoryLoader from '@/components/ui/loaders/bakery-categories-loader';
 import NotFound from '@/components/ui/not-found';
-import SolidBoxedCategoryMenu from '@/components/ui/solid-boxed-categoty';
+import SolidBoxedCategoryMenu from '@/components/categories/solid-boxed-category';
 import type { Category } from '@/types';
 
 interface SlidingVerticalRectangleCategoriesProps {

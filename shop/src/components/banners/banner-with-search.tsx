@@ -1,16 +1,16 @@
 import cn from 'classnames';
+import Image from 'next/image';
 import { Swiper, SwiperSlide, Navigation } from '@/components/ui/slider';
-import { Image } from '@/components/ui/image';
 import { productPlaceholder } from '@/lib/placeholders';
-import Search from '@/components/ui/search/search';
+// import Search from '@/components/ui/search/search';
 import type { Banner } from '@/types';
 import { useHeaderSearch } from '@/layouts/headers/header-search-atom';
 import { useIntersection } from 'react-use';
 import { useEffect, useMemo, useRef } from 'react';
-import { useIsRTL } from '@/lib/locals';
+// import { useIsRTL } from '@/lib/locals';
 import { ArrowNext, ArrowPrev } from '@/components/icons';
 import { useTranslation } from 'next-i18next';
-import { useReverse } from '@/lib/reverse';
+import { useReverse } from '@/lib/hooks/reverse';
 
 interface BannerProps {
   banners: Banner[] | undefined;
@@ -21,7 +21,7 @@ const BannerWithSearch: React.FC<BannerProps> = ({ banners, layout }) => {
   const { showHeaderSearch, hideHeaderSearch } = useHeaderSearch();
   const intersectionRef = useRef(null);
   const { t } = useTranslation('common');
-  const { isRTL } = useIsRTL();
+  // const { isRTL } = useIsRTL();
   const intersection = useIntersection(intersectionRef, {
     root: null,
     rootMargin: '0px',
@@ -40,13 +40,13 @@ const BannerWithSearch: React.FC<BannerProps> = ({ banners, layout }) => {
 
   const reverseBanners = useReverse({ items: banners as Banner[] });
   return (
-    <div
-      className={cn('textClass relative hidden lg:block', {
-        '!block': layout === 'minimal',
-      })}
-    >
-      <div className="-z-1 overflow-hidden">
-        <div className="relative">
+    // <div
+    //   className={cn('textClass relative hidden lg:block', {
+    //     '!block': layout === 'minimal',
+    //   })}
+    // >
+    //   <div className="-z-1 overflow-hidden">
+    //     <div className="relative">
           <Swiper
             id="banner"
             // loop={true}
@@ -96,45 +96,45 @@ const BannerWithSearch: React.FC<BannerProps> = ({ banners, layout }) => {
                       {banner?.description}
                     </p>
                     <div className="w-full max-w-3xl" ref={intersectionRef}>
-                      <Search label="search" />
+                      {/* <Search label="search" /> */}
                     </div>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
-          {banners && banners?.length > 1 ? (
-            <>
-              <div
-                className="banner-prev absolute top-2/4 z-10 -mt-4 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-border-200 border-opacity-70 bg-light text-heading shadow-200 transition-all duration-200 ltr:left-4 rtl:right-4 md:-mt-5 ltr:md:left-5 rtl:md:right-5"
-                role="button"
-              >
-                <span className="sr-only">{t('text-previous')}</span>
+          // {banners && banners?.length > 1 ? (
+          //   <>
+          //     <div
+          //       className="banner-prev absolute top-2/4 z-10 -mt-4 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-border-200 border-opacity-70 bg-light text-heading shadow-200 transition-all duration-200 ltr:left-4 rtl:right-4 md:-mt-5 ltr:md:left-5 rtl:md:right-5"
+          //       role="button"
+          //     >
+          //       <span className="sr-only">{t('text-previous')}</span>
 
-                {isRTL ? (
-                  <ArrowNext width={18} height={18} />
-                ) : (
-                  <ArrowPrev width={18} height={18} />
-                )}
-              </div>
-              <div
-                className="banner-next absolute top-2/4 z-10 -mt-4 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-border-200 border-opacity-70 bg-light text-heading shadow-200 transition-all duration-200 ltr:right-4 rtl:left-4 md:-mt-5 ltr:md:right-5 rtl:md:left-5"
-                role="button"
-              >
-                <span className="sr-only">{t('text-next')}</span>
-                {isRTL ? (
-                  <ArrowPrev width={18} height={18} />
-                ) : (
-                  <ArrowNext width={18} height={18} />
-                )}
-              </div>
-            </>
-          ) : (
-            ''
-          )}
-        </div>
-      </div>
-    </div>
+          //       {/* {isRTL ? ( */}
+          //         {/* <ArrowNext width={18} height={18} /> */}
+          //       {/* ) : ( */}
+          //         <ArrowPrev width={18} height={18} />
+          //       {/* )} */}
+          //     </div>
+          //     <div
+          //       className="banner-next absolute top-2/4 z-10 -mt-4 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-border-200 border-opacity-70 bg-light text-heading shadow-200 transition-all duration-200 ltr:right-4 rtl:left-4 md:-mt-5 ltr:md:right-5 rtl:md:left-5"
+          //       role="button"
+          //     >
+          //       <span className="sr-only">{t('text-next')}</span>
+          //       {/* {isRTL ? ( */}
+          //         {/* <ArrowPrev width={18} height={18} /> */}
+          //       {/* ) : ( */}
+          //         <ArrowNext width={18} height={18} />
+          //       {/* )} */}
+          //     </div>
+          //   </>
+          // ) : (
+          //   ''
+          // )}
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 

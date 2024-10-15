@@ -1,7 +1,7 @@
 import BakeryCategoryLoader from '@/components/ui/loaders/bakery-categories-loader';
 import NotFound from '@/components/ui/not-found';
 import SectionBlock from '@/components/ui/section-block';
-import SolidCardCategory from '@/components/ui/solid-card-category';
+import SolidCardCategory from '@/components/categories/solid-card-category';
 import type { Category } from '@/types';
 
 interface SlidingCardCategoriesProps {

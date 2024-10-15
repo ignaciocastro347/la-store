@@ -1,4 +1,4 @@
-export const ExpandLessIcon: React.FC<React.SVGAttributes<{}>> = (props) => (
+const ExpandLessIcon: React.FC<React.SVGAttributes<{}>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -14,3 +14,5 @@ export const ExpandLessIcon: React.FC<React.SVGAttributes<{}>> = (props) => (
     />
   </svg>
 );
+
+export default ExpandLessIcon;

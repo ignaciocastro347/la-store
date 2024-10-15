@@ -6,7 +6,7 @@ import NotFound from '@/components/ui/not-found';
 import rangeMap from '@/lib/range-map';
 import ProductCard from '@/components/products/cards/card';
 import ErrorMessage from '@/components/ui/error-message';
-import { useProducts } from '@/framework/product';
+// import { useProducts } from '@/framework/product';
 import { PRODUCTS_PER_PAGE } from '@/framework/client/variables';
 import type { Product } from '@/types';
 
@@ -99,8 +99,17 @@ export default function ProductsGrid({
   variables,
   column = 'auto',
 }: ProductsGridProps) {
-  const { products, loadMore, isLoadingMore, isLoading, hasMore, error } =
-    useProducts(variables);
+
+  const products: any[] = [];
+  const isLoading = false;
+  const error = null;
+  const loadMore = null;
+  const isLoadingMore = false;
+  const hasMore = false;
+
+
+  // const { products, loadMore, isLoadingMore, isLoading, hasMore, error } =
+  //   useProducts(variables);
 
   const productsItem: any = products;
   return (

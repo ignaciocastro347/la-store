@@ -2,10 +2,9 @@ import { useRouter } from 'next/router';
 import cn from 'classnames';
 import { useTranslation } from 'next-i18next';
 import Scrollbar from '@/components/ui/scrollbar';
-import Link from '@/components/ui/link';
-import { Image } from '@/components/ui/image';
+import Image from 'next/image';
 import { productPlaceholder } from '@/lib/placeholders';
-import { Routes } from '@/config/routes';
+// import { Routes } from '@/config/routes';
 import { Transition } from '@headlessui/react';
 import Spinner from '@/components/ui/loaders/spinner/spinner';
 
@@ -69,7 +68,8 @@ const AutoSuggestion: React.FC<Props> = ({
               <div className="max-h-52">
                 {suggestions?.map((item: any) => (
                   <div
-                    onClick={() => handleClick(Routes.product(item?.slug))}
+                  // onClick={() => handleClick(Routes.product(item?.slug))}
+                  onClick={() => {}}
                     key={item?.slug}
                     className="flex w-full cursor-pointer items-center border-b border-border-100 px-5 py-2 transition-colors last:border-b-0 hover:bg-gray-100"
                   >

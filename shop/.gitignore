@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.yarn/install-state.gz
 
 # testing
 /coverage
@@ -25,28 +26,11 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env
 .env*.local
+
 # vercel
 .vercel
 
-# graphql-let
-__generated__
-*.graphql.d.ts
-*.graphqls.d.ts
-
-# PWA
-workbox-*.js
-sw.js
-
-# IDE
-.idea/
-
-# MY_TODO
-MY_TODO.md
-
-package.default.json
-package.graphql.json
-
-.graphql-let.general.yml
-.graphql-let.windows.yml
+# typescript
+*.tsbuildinfo
+next-env.d.ts

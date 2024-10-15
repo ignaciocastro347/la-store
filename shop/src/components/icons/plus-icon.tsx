@@ -1,4 +1,4 @@
-export const PlusIcon: React.FC<React.SVGAttributes<{}>> = (props) => (
+const PlusIcon: React.FC<React.SVGAttributes<{}>> = (props) => (
 	<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
 		<path
 			strokeLinecap="round"
@@ -29,3 +29,5 @@ export const PlusIconNew: React.FC<React.SVGAttributes<{}>> = (props) => {
     </svg>
   );
 };
+
+export default PlusIcon;

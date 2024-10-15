@@ -1,0 +1,8 @@
+{
+    "files": [],
+    "references": [
+        { "path": "./admin/graphql/tsconfig.json" },
+        { "path": "./api/graphql/tsconfig.json" },
+        { "path": "./shop/tsconfig.json" },
+    ]
+}

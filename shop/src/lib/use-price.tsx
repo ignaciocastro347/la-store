@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { useSettings } from '@/framework/settings';
+// import { useSettings } from '@/framework/settings';
 
 export function formatPrice({
   amount,
@@ -56,9 +56,16 @@ export default function usePrice(
     currencyCode?: string;
   } | null
 ) {
-  const { settings } = useSettings();
-  const currency = settings?.currency;
-  const currencyOptions = settings?.currencyOptions;
+  // const { settings } = useSettings();
+  // const currency = settings?.currency;
+  // const currencyOptions = settings?.currencyOptions;
+
+  const currency = 'USD';
+  const currencyOptions = {
+    formation: 'en-US',
+    fractions: 2
+  };
+
   const { amount, baseAmount, currencyCode, currencyOptionsFormat } = {
     ...data,
     currencyCode: currency ?? 'USD',
@@ -73,7 +80,7 @@ export default function usePrice(
   const value = useMemo(() => {
     if (typeof amount !== 'number' || !currencyCode) return '';
     const fractionalDigit = fractions ? fractions : 2;
-    let currentLocale = formation ? formation : 'en';
+    const currentLocale = formation ? formation : 'en';
     // if (process.env.NEXT_PUBLIC_ENABLE_MULTI_LANG) {
     //   currentLocale = locale ? locale : 'en';
     // }

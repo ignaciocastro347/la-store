@@ -1,4 +1,4 @@
-import { useProducts } from '@/framework/product';
+// import { useProducts } from '@/framework/product';
 import { PRODUCTS_PER_PAGE } from '@/framework/client/variables';
 import { Grid } from '@/components/products/grid';
 import { useRouter } from 'next/router';
@@ -14,14 +14,22 @@ export default function ProductGridHome({
   column,
   gridClassName,
 }: Props) {
-  const { query } = useRouter();
-  const { products, loadMore, isLoadingMore, isLoading, hasMore, error } =
-    useProducts({
-      ...variables,
-      ...(query.category && { categories: query.category }),
-      ...(query.text && { name: query.text }),
-    });
-  const productsItem: any = products;
+
+  const productsItem: any[] = [];
+  const loadMore = () => {};
+  const isLoading = false;
+  const isLoadingMore = false;
+  const hasMore = false;
+  const error = null;
+
+  // const { query } = useRouter();
+  // const { products, loadMore, isLoadingMore, isLoading, hasMore, error } =
+  //   useProducts({
+  //     ...variables,
+  //     ...(query.category && { categories: query.category }),
+  //     ...(query.text && { name: query.text }),
+  //   });
+  // const productsItem: any = products;
   return (
     <Grid
       products={productsItem}

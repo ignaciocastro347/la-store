@@ -1,4 +1,4 @@
-export const ArrowNextIcon: React.FC<React.SVGAttributes<{}>> = (props) => (
+const ArrowNextIcon: React.FC<React.SVGAttributes<{}>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
@@ -12,3 +12,5 @@ export const ArrowNextIcon: React.FC<React.SVGAttributes<{}>> = (props) => (
     />
   </svg>
 );
+
+export default ArrowNextIcon;

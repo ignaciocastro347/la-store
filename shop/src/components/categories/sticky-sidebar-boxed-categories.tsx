@@ -1,7 +1,7 @@
 import Scrollbar from '@/components/ui/scrollbar';
 import NotFound from '@/components/ui/not-found';
 import CategoriesLoader from '@/components/ui/loaders/categories-loader';
-import OutlinedBoxedCategoryMenu from '@/components/ui/outlined-boxed-category';
+import OutlinedBoxedCategoryMenu from '@/components/categories/outlined-boxed-category';
 import type { Category } from '@/types';
 import { checkIsMaintenanceModeComing } from '@/lib/constants';
 import classNames from 'classnames';

@@ -1,6 +1,6 @@
 import { cartAnimation } from '@/lib/cart-animation';
-import { useCart } from '@/store/quick-cart/cart.context';
-import { generateCartItem } from '@/store/quick-cart/generate-cart-item';
+// import { useCart } from '@/store/quick-cart/cart.context';
+// import { generateCartItem } from '@/store/quick-cart/generate-cart-item';
 import Link from 'next/link';
 import { PlusIconNew } from '@/components/icons/plus-icon';
 import { MinusIconNew } from '@/components/icons/minus-icon';
@@ -50,38 +50,43 @@ export const AddToCart = ({
   disabled,
 }: Props) => {
   const { t } = useTranslation('common');
-  const {
-    addItemToCart,
-    removeItemFromCart,
-    isInStock,
-    getItemFromCart,
-    isInCart,
-    updateCartLanguage,
-    language,
-  } = useCart();
+
+  const handleRemoveClick = () => {};
+  const disabledState = false;
+
+  // const {
+  //   addItemToCart,
+  //   removeItemFromCart,
+  //   isInStock,
+  //   getItemFromCart,
+  //   isInCart,
+  //   updateCartLanguage,
+  //   language,
+  // } = useCart();
   const item = generateCartItem(data, variation);
   const handleAddClick = (
     e: React.MouseEvent<HTMLButtonElement | MouseEvent>
   ) => {
     e.stopPropagation();
     // Check language and update
-    if (item?.language !== language) {
-      updateCartLanguage(item?.language);
-    }
-    addItemToCart(item, 1);
-    if (!isInCart(item.id)) {
-      cartAnimation(e);
-    }
+    // if (item?.language !== language) {
+    //   updateCartLanguage(item?.language);
+    // }
+    // addItemToCart(item, 1);
+    // if (!isInCart(item.id)) {
+    //   cartAnimation(e);
+    // }
   };
-  const handleRemoveClick = (e: any) => {
-    e.stopPropagation();
-    removeItemFromCart(item.id);
-  };
-  const outOfStock = isInCart(item?.id) && !isInStock(item.id);
-  const disabledState =
-    disabled || outOfStock || data.status.toLowerCase() != 'publish';
+  // const handleRemoveClick = (e: any) => {
+  //   e.stopPropagation();
+  //   removeItemFromCart(item.id);
+  // };
+  // const outOfStock = isInCart(item?.id) && !isInStock(item.id);
+  // const disabledState =
+  //   disabled || outOfStock || data.status.toLowerCase() != 'publish';
 
-  return !isInCart(item?.id) ? (
+  // return !isInCart(item?.id) ? (
+  return (
     <div>
       {!data?.is_external || !data?.external_product_url ? (
         variant !== 'florine' ? (
@@ -95,11 +100,13 @@ export const AddToCart = ({
             <button
               className={classNames(
                 'p-2 text-base',
-                disabledState || !isInCart(item?.id)
+                // disabledState || !isInCart(item?.id)
+                disabledState
                   ? 'cursor-not-allowed text-[#c1c1c1]'
                   : 'text-accent'
               )}
-              disabled={disabledState || !isInCart(item?.id)}
+              // disabled={disabledState || !isInCart(item?.id)}
+              disabled={disabledState}
               onClick={handleRemoveClick}
             >
               <span className="sr-only">{t('text-minus')}</span>
@@ -131,16 +138,17 @@ export const AddToCart = ({
         </Link>
       )}
     </div>
-  ) : (
-    <>
-      <Counter
-        value={getItemFromCart(item.id).quantity}
-        onDecrement={handleRemoveClick}
-        onIncrement={handleAddClick}
-        variant={counterVariant || variant}
-        className={counterClass}
-        disabled={outOfStock}
-      />
-    </>
-  );
+  )
+  // : (
+  //   <>
+  //     <Counter
+  //       value={getItemFromCart(item.id).quantity}
+  //       onDecrement={handleRemoveClick}
+  //       onIncrement={handleAddClick}
+  //       variant={counterVariant || variant}
+  //       className={counterClass}
+  //       disabled={outOfStock}
+  //     />
+  //   </>
+  // );
 };

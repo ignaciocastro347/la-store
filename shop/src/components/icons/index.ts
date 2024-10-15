@@ -1,3 +1,7 @@
-export { default as Check } from "./check-icon";
-export { ArrowNextIcon as ArrowNext } from "./arrow-next";
-export { ArrowPrevIcon as ArrowPrev } from "./arrow-prev";
+import ArrowNext from './arrow-next';
+import ArrowPrev from './arrow-prev';
+
+export {
+  ArrowNext,
+  ArrowPrev
+}

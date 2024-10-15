@@ -1,4 +1,4 @@
-import { Image } from '@/components/ui/image';
+import Image from 'next/image';
 import cn from 'classnames';
 import usePrice from '@/lib/use-price';
 import { useTranslation } from 'next-i18next';

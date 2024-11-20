@@ -1,4 +1,3 @@
-import { User } from '@/types';
 import { atom } from 'jotai';
 
 export const CART_KEY = 'pick-cart';

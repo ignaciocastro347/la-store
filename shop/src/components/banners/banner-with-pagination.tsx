@@ -1,16 +1,11 @@
 import { Swiper, SwiperSlide, Pagination } from '@/components/ui/slider';
-import { Image } from '@/components/ui/image';
+import Image from 'next/image';
 import { productPlaceholder } from '@/lib/placeholders';
 import Link from '@/components/ui/link';
 import { Routes } from '@/config/routes';
 import type { Banner } from '@/types';
-import { useReverse } from '@/lib/reverse';
-
-interface BannerProps {
-  banners: Banner[] | undefined;
-  layout?: string;
-  slug?: string;
-}
+import { useReverse } from '@/lib/hooks/use-reverse';
+import { BannerProps } from './banner';
 
 const BannerWithPagination: React.FC<BannerProps> = ({ banners, slug }) => {
   const reverseBanners = useReverse({ items: banners as Banner[] });

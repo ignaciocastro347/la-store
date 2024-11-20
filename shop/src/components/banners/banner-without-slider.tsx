@@ -2,12 +2,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { productPlaceholder } from '@/lib/placeholders';
 import SearchWithSuggestion from '@/components/ui/search/search-with-suggestion';
-import type { Banner } from '@/types';
-
-interface BannerProps {
-  banners: Banner[] | undefined;
-  layout?: string;
-}
+import { BannerProps } from './banner';
 
 const BannerWithoutSlider: React.FC<BannerProps> = ({ banners, layout }) => {
   return (

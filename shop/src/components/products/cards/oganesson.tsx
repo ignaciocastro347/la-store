@@ -1,6 +1,6 @@
 import { Image } from '@/components/ui/image';
 import cn from 'classnames';
-import usePrice from '@/lib/use-price';
+import usePrice from '@/lib/hooks/use-price';
 import { useTranslation } from 'next-i18next';
 import { productPlaceholder } from '@/lib/placeholders';
 import { Product } from '@/types';

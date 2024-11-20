@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
+import config from "./next-i18next.config.js";
+const { i18n } = config
+
 const nextConfig = {
   reactStrictMode: true,
+  i18n,
+  experimental: {
+    esmExternals: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -24,6 +31,21 @@ const nextConfig = {
         hostname: "i.pravatar.cc",
       },
     ],
+  },
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.graphql$/,
+      exclude: /node_modules/,
+      use: [options.defaultLoaders.babel, { loader: "graphql-let/loader" }],
+    });
+
+    config.module.rules.push({
+      test: /\.ya?ml$/,
+      type: "json",
+      use: "yaml-loader",
+    });
+
+    return config;
   },
 };
 

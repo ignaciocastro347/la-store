@@ -94,44 +94,44 @@ export interface Attachment {
   slug?: string;
 }
 
-// export interface ProductQueryOptions extends QueryOptions {
-//   shop_id: string;
-//   sortedBy: string;
-//   orderBy: string;
-//   name: string;
-//   categories: string;
-//   tags: string;
-//   type: string;
-//   manufacturer: string;
-//   author: string;
-//   price: string;
-//   min_price: string;
-//   max_price: string;
-//   language: string;
-//   searchType: string;
-//   searchQuery: string;
-//   text: string;
-// }
+export interface ProductQueryOptions extends QueryOptions {
+  shop_id: string;
+  sortedBy: string;
+  orderBy: string;
+  name: string;
+  categories: string;
+  tags: string;
+  type: string;
+  manufacturer: string;
+  author: string;
+  price: string;
+  min_price: string;
+  max_price: string;
+  language: string;
+  searchType: string;
+  searchQuery: string;
+  text: string;
+}
 
-// export interface PopularProductQueryOptions extends QueryOptions {
-//   language: string;
-//   type_slug: string;
-//   with: string;
-//   range: number;
-// }
+export interface PopularProductQueryOptions extends QueryOptions {
+  language: string;
+  type_slug: string;
+  with: string;
+  range: number;
+}
 
-// export interface BestSellingProductQueryOptions extends QueryOptions {
-//   language: string;
-//   type_slug: string;
-//   with: string;
-//   range: number;
-// }
+export interface BestSellingProductQueryOptions extends QueryOptions {
+  language: string;
+  type_slug: string;
+  with: string;
+  range: number;
+}
 
-// export interface CategoryQueryOptions extends QueryOptions {
-//   language: string;
-//   parent: string | null;
-//   type: string;
-// }
+export interface CategoryQueryOptions extends QueryOptions {
+  language: string;
+  parent: string | null;
+  type: string;
+}
 
 // export interface RefundQueryOptions extends QueryOptions {
 //   language: string;
@@ -213,10 +213,10 @@ export interface TypeQueryOptions extends QueryOptions {
 //   sortedBy?: string;
 // }
 
-// export interface QuestionQueryOptions extends QueryOptions {
-//   product_id: string;
-//   question?: string;
-// }
+export interface QuestionQueryOptions extends QueryOptions {
+  product_id: string;
+  question?: string;
+}
 
 // export interface MyQuestionQueryOptions extends QueryOptions {}
 
@@ -284,17 +284,32 @@ export interface Category {
   parent_id?: number | null;
 }
 
+// export interface Banner {
+//   id: string;
+//   title: string;
+//   description: string;
+//   image: Attachment;
+// }
+
+
 export interface Banner {
-  id: string;
-  title: string;
-  description: string;
-  image: Attachment;
+  __typename?: "Banner";
+  title?: string | null;
+  description?: string | null;
+  image?: {
+    __typename?: "Attachment";
+    id?: string | null;
+    thumbnail?: string | null;
+    original?: string | null;
+  } | null;
 }
+
+export type Slug = string | null;
 
 export interface Type {
   id: string;
   name: string;
-  slug?: any;
+  slug?: Slug;
   banners: Banner[];
   icon?: string;
   promotional_sliders: Attachment[];
@@ -347,7 +362,7 @@ export interface Shop {
   __typename?: string;
   id: string;
   name: string;
-  slug: string;
+  slug: Slug;
   description: string;
   cover_image: Attachment;
   logo?: Attachment;
@@ -368,13 +383,13 @@ export interface Shop {
 export interface Author {
   id: string;
   name: string;
-  slug: string;
+  slug: Slug;
 }
 
 export interface Manufacturer {
   id: string;
   name: string;
-  slug: string;
+  slug: Slug;
 }
 
 // export enum CouponType {
@@ -382,41 +397,41 @@ export interface Manufacturer {
 //   PERCENTAGE = 'percentage',
 //   FREE_SHIPPING = 'free_shipping',
 // }
-// export interface Coupon {
-//   id: string;
-//   code: string;
-//   description: string;
-//   translated_languages: string[];
-//   orders: Order[];
-//   type: string;
-//   image: Attachment;
-//   amount: number;
-//   active_from: string;
-//   expire_at: string;
-//   created_at: string;
-//   updated_at: string;
-//   target?: boolean;
-//   shop_id?: string;
-//   is_approve?: boolean;
-//   is_valid?: boolean;
-// }
+export interface Coupon {
+  id: string;
+  code: string;
+  description: string;
+  translated_languages: string[];
+  orders: Order[];
+  type: string;
+  image: Attachment;
+  amount: number;
+  active_from: string;
+  expire_at: string;
+  created_at: string;
+  updated_at: string;
+  target?: boolean;
+  shop_id?: string;
+  is_approve?: boolean;
+  is_valid?: boolean;
+}
 
 export interface Tag {
   id: string;
   name: string;
-  slug: string;
+  slug: Slug;
 }
 
-// export interface Feedback {
-//   id: string;
-//   user_id: string;
-//   model_type: string;
-//   model_id: string;
-//   positive: boolean;
-//   negative: boolean;
-//   created_at: string;
-//   updated_at: string;
-// }
+export interface Feedback {
+  id: string;
+  user_id: string;
+  model_type: string;
+  model_id: string;
+  positive: boolean;
+  negative: boolean;
+  created_at: string;
+  updated_at: string;
+}
 // export interface Maintenance {
 //   image: any;
 //   title: string;
@@ -428,7 +443,7 @@ export interface Tag {
 // export interface Settings {
 //   id: string;
 //   name: string;
-//   slug: string;
+//   slug: Slug;
 //   options: {
 //     [key: string]: any;
 //   };
@@ -439,14 +454,14 @@ export interface Tag {
 //   intent_id?: string;
 // }
 
-// export interface PaymentIntentInfo {
-//   client_secret: string;
-//   payment_id: string;
-//   is_redirect: boolean;
-//   redirect_url: string;
-//   currency: string;
-//   amount: string;
-// }
+export interface PaymentIntentInfo {
+  client_secret: string;
+  payment_id: string;
+  is_redirect: boolean;
+  redirect_url: string;
+  currency: string;
+  amount: string;
+}
 
 // export interface Card {
 //   expires: string;
@@ -457,43 +472,43 @@ export interface Tag {
 //   default_card: number;
 // }
 
-// export interface PaymentIntent {
-//   id: number | string;
-//   order_id: number | string;
-//   payment_gateway: PaymentGateway;
-//   tracking_number: string;
-//   payment_intent_info: PaymentIntentInfo;
-// }
+export interface PaymentIntent {
+  id: number | string;
+  order_id: number | string;
+  payment_gateway: PaymentGateway;
+  tracking_number: string;
+  payment_intent_info: PaymentIntentInfo;
+}
 
-// export interface Order {
-//   id: number | string;
-//   tracking_number: string;
-//   customer_id: number | string;
-//   customer_name: string;
-//   customer_contact: string;
-//   customer?: User;
-//   amount: number;
-//   children: Order[];
-//   sales_tax: number;
-//   total: number;
-//   paid_total: number;
-//   coupon?: Coupon;
-//   discount?: number;
-//   delivery_fee?: number;
-//   delivery_time?: string;
-//   products: Product[];
-//   created_at: Date;
-//   updated_at: Date;
-//   billing_address?: Address;
-//   shipping_address?: Address;
-//   refund: Refund;
-//   language?: string;
-//   payment_intent?: PaymentIntent;
-//   order_status: string;
-//   payment_status: string;
-//   payment_gateway: string;
-//   reviews?: Review[];
-// }
+export interface Order {
+  id: number | string;
+  tracking_number: string;
+  customer_id: number | string;
+  customer_name: string;
+  customer_contact: string;
+  customer?: User;
+  amount: number;
+  children: Order[];
+  sales_tax: number;
+  total: number;
+  paid_total: number;
+  coupon?: Coupon;
+  discount?: number;
+  delivery_fee?: number;
+  delivery_time?: string;
+  products: Product[];
+  created_at: Date;
+  updated_at: Date;
+  billing_address?: Address;
+  shipping_address?: Address;
+  refund: Refund;
+  language?: string;
+  payment_intent?: PaymentIntent;
+  order_status: string;
+  payment_status: string;
+  payment_gateway: string;
+  reviews?: Review[];
+}
 
 // export interface VerifyCouponInputType {
 //   code: string;
@@ -568,20 +583,20 @@ export interface Tag {
 //   updated_at: string;
 // }
 
-// export interface Refund {
-//   id: string;
-//   title: string;
-//   description: string;
-//   images: Attachment[];
-//   amount: number;
-//   status: RefundStatus;
-//   shop: Shop;
-//   order: Order;
-//   refund_reason: RefundReason;
-//   customer: User;
-//   created_at: string;
-//   updated_at: string;
-// }
+export interface Refund {
+  id: string;
+  title: string;
+  description: string;
+  images: Attachment[];
+  amount: number;
+  status: RefundStatus;
+  shop: Shop;
+  order: Order;
+  refund_reason: RefundReason;
+  customer: User;
+  created_at: string;
+  updated_at: string;
+}
 // export interface RefundPolicy {
 //   id: string;
 //   title: string;
@@ -599,31 +614,31 @@ export interface Tag {
 //   deleted_at?: string;
 // }
 
-// export interface RefundReason {
-//   id: string;
-//   name: string;
-//   slug: string;
-//   language: string;
-//   created_at: string;
-//   updated_at: string;
-// }
+export interface RefundReason {
+  id: string;
+  name: string;
+  slug: string;
+  language: string;
+  created_at: string;
+  updated_at: string;
+}
 
-// export enum PaymentGateway {
-//   STRIPE = 'STRIPE',
-//   COD = 'CASH_ON_DELIVERY',
-//   CASH = 'CASH',
-//   FULL_WALLET_PAYMENT = 'FULL_WALLET_PAYMENT',
-//   PAYPAL = 'PAYPAL',
-//   MOLLIE = 'MOLLIE',
-//   RAZORPAY = 'RAZORPAY',
-//   SSLCOMMERZ = 'SSLCOMMERZ',
-//   PAYSTACK = 'PAYSTACK',
-//   PAYMONGO = 'PAYMONGO',
-//   XENDIT = 'XENDIT',
-//   IYZICO = 'IYZICO',
-//   BKASH = 'BKASH',
-//   FLUTTERWAVE = 'FLUTTERWAVE',
-// }
+export enum PaymentGateway {
+  STRIPE = 'STRIPE',
+  COD = 'CASH_ON_DELIVERY',
+  CASH = 'CASH',
+  FULL_WALLET_PAYMENT = 'FULL_WALLET_PAYMENT',
+  PAYPAL = 'PAYPAL',
+  MOLLIE = 'MOLLIE',
+  RAZORPAY = 'RAZORPAY',
+  SSLCOMMERZ = 'SSLCOMMERZ',
+  PAYSTACK = 'PAYSTACK',
+  PAYMONGO = 'PAYMONGO',
+  XENDIT = 'XENDIT',
+  IYZICO = 'IYZICO',
+  BKASH = 'BKASH',
+  FLUTTERWAVE = 'FLUTTERWAVE',
+}
 
 // export enum OrderStatus {
 //   PENDING = 'order-pending',
@@ -647,12 +662,12 @@ export interface Tag {
 //   AWAITING_FOR_APPROVAL = 'payment-awaiting-for-approval',
 // }
 
-// export enum RefundStatus {
-//   APPROVED = 'Approved',
-//   PENDING = 'Pending',
-//   REJECTED = 'Rejected',
-//   PROCESSING = 'Processing',
-// }
+export enum RefundStatus {
+  APPROVED = 'Approved',
+  PENDING = 'Pending',
+  REJECTED = 'Rejected',
+  PROCESSING = 'Processing',
+}
 
 export interface Address {
   id: string;
@@ -669,41 +684,41 @@ export interface Address {
   location: GoogleMapLocation;
 }
 
-// export interface User {
-//   id: string;
-//   name: string;
-//   email: string;
-//   wallet: {
-//     total_points: number;
-//     points_used: number;
-//     available_points: number;
-//   };
-//   profile: {
-//     id?: string;
-//     contact?: string;
-//     bio?: string;
-//     avatar?: Attachment;
-//   };
-//   address: Address[];
-//   payment_gateways?: UserPaymentGateway[];
-//   last_order: Order;
-// }
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  wallet: {
+    total_points: number;
+    points_used: number;
+    available_points: number;
+  };
+  profile: {
+    id?: string;
+    contact?: string;
+    bio?: string;
+    avatar?: Attachment;
+  };
+  address: Address[];
+  payment_gateways?: UserPaymentGateway[];
+  last_order: Order;
+}
 
-// export interface UserPaymentGateway {
-//   id: number | string;
-//   customer_id: string;
-//   gateway_name: PaymentGateway;
-//   user_id: number | string;
-// }
+export interface UserPaymentGateway {
+  id: number | string;
+  customer_id: string;
+  gateway_name: PaymentGateway;
+  user_id: number | string;
+}
 
-// export interface UpdateUserInput extends Partial<User> {
-//   id: string;
-// }
+export interface UpdateUserInput extends Partial<User> {
+  id: string;
+}
 
-// export interface LoginUserInput {
-//   email: string;
-//   password: string;
-// }
+export interface LoginUserInput {
+  email: string;
+  password: string;
+}
 
 // export type SocialLoginInputType = {
 //   provider: string;
@@ -713,11 +728,11 @@ export interface Address {
 //   phone_number: string;
 // };
 
-// export interface RegisterUserInput {
-//   name: string;
-//   email: string;
-//   password: string;
-// }
+export interface RegisterUserInput {
+  name: string;
+  email: string;
+  password: string;
+}
 
 // export interface ForgotPasswordUserInput {
 //   email: string;
@@ -738,9 +753,9 @@ export interface Address {
 //   oldPassword: string;
 //   newPassword: string;
 // }
-// export interface UpdateEmailUserInput {
-//   email: string;
-// }
+export interface UpdateEmailUserInput {
+  email: string;
+}
 
 // export interface PasswordChangeResponse extends Success {}
 
@@ -855,22 +870,22 @@ export interface Address {
 //   payment_gateway?: string;
 // }
 
-// export interface Review {
-//   id: string;
-//   name: string;
-//   rating: number;
-//   comment: string;
-//   photos: Attachment[];
-//   user: User;
-//   product: Product;
-//   shop: Shop;
-//   feedbacks: Feedback[];
-//   positive_feedbacks_count: number;
-//   negative_feedbacks_count: number;
-//   my_feedback: Feedback;
-//   created_at: string;
-//   updated_at: string;
-// }
+export interface Review {
+  id: string;
+  name: string;
+  rating: number;
+  comment: string;
+  photos: Attachment[];
+  user: User;
+  product: Product;
+  shop: Shop;
+  feedbacks: Feedback[];
+  positive_feedbacks_count: number;
+  negative_feedbacks_count: number;
+  my_feedback: Feedback;
+  created_at: string;
+  updated_at: string;
+}
 
 // export interface Question {
 //   id: string;
@@ -943,12 +958,12 @@ export interface GoogleMapLocation {
   formattedAddress?: string;
   formatted_address?: string;
 }
-// export interface ShopMapLocation {
-//   lat?: string;
-//   lng?: string;
-//   street_address?: string;
-//   formattedAddress?: string;
-// }
+export interface ShopMapLocation {
+  lat?: string;
+  lng?: string;
+  street_address?: string;
+  formattedAddress?: string;
+}
 
 // export enum StoreNoticePriorityType {
 //   High = 'high',
@@ -981,7 +996,7 @@ export interface GoogleMapLocation {
 //   id: string;
 //   faq_title: string;
 //   faq_description: string;
-//   slug: string;
+//   slug: Slug;
 //   faq_type: string;
 //   issued_by: string;
 //   language: string;

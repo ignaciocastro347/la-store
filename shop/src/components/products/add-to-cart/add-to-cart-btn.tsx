@@ -1,8 +1,7 @@
-import { PlusIcon } from '@/components/icons/plus-icon';
+import PlusIcon from '@/components/icons/plus-icon';
 import CartIcon from '@/components/icons/cart';
 import { useTranslation } from 'next-i18next';
 import cn from 'classnames';
-import { PlusIconNew } from '@/components/icons/plus-icon';
 
 type Props = {
   variant?:

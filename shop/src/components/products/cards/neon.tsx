@@ -1,6 +1,6 @@
 import { Image } from '@/components/ui/image';
 import cn from 'classnames';
-import usePrice from '@/lib/use-price';
+import usePrice from '@/lib/hooks/use-price';
 //  import { AddToCart } from '@/components/products/add-to-cart/add-to-cart';
 import { useTranslation } from 'next-i18next';
 import { useModalAction } from '@/components/ui/modal/modal.context';

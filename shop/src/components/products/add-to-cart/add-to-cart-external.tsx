@@ -1,31 +1,28 @@
-import Counter from '@/components/ui/counter';
-import { cartAnimation } from '@/lib/cart-animation';
-import { useCart } from '@/store/quick-cart/cart.context';
-import { generateCartItem } from '@/store/quick-cart/generate-cart-item';
-import Button from '@/components/ui/button';
-import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+// import { useCart } from '@/store/quick-cart/cart.context';
+// import { generateCartItem } from '@/store/quick-cart/generate-cart-item';
+// import { useTranslation } from 'next-i18next';
+// import { useState } from 'react';
+// import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 interface Props {
   data: any;
   variant?:
-    | 'helium'
-    | 'neon'
-    | 'argon'
-    | 'oganesson'
-    | 'single'
-    | 'big'
-    | 'bordered';
+  | 'helium'
+  | 'neon'
+  | 'argon'
+  | 'oganesson'
+  | 'single'
+  | 'big'
+  | 'bordered';
   counterVariant?:
-    | 'helium'
-    | 'neon'
-    | 'argon'
-    | 'oganesson'
-    | 'single'
-    | 'details'
-    | 'bordered';
+  | 'helium'
+  | 'neon'
+  | 'argon'
+  | 'oganesson'
+  | 'single'
+  | 'details'
+  | 'bordered';
   counterClass?: string;
   variation?: any;
   disabled?: boolean;
@@ -33,18 +30,18 @@ interface Props {
 
 export const AddToCartExternal = ({
   data,
-  variant = 'helium',
-  counterVariant,
-  counterClass,
-  variation,
-  disabled,
+  // variant = 'helium',
+  // counterVariant,
+  // counterClass,
+  // variation,
+  // disabled,
 }: Props) => {
-  const router = useRouter();
-  const { t } = useTranslation('common');
-  const { addItemToCart, isInStock, isInCart, updateCartLanguage, language } =
-    useCart();
-  const item = generateCartItem(data, variation);
-  const [quantity, setQuantity] = useState<number>(1);
+  // const router = useRouter();
+  // const { t } = useTranslation('common');
+  // const { addItemToCart, isInStock, isInCart, updateCartLanguage, language } =
+  //   useCart();
+  // const item = generateCartItem(data, variation);
+  // const [quantity, setQuantity] = useState<number>(1);
 
 
   return (

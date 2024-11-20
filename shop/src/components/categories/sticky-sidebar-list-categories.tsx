@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Scrollbar from '@/components/ui/scrollbar';
 import NotFound from '@/components/ui/not-found';
 import TreeMenu from '@/components/ui/tree-menu';
-import CategoriesLoader from '@/components/ui/loaders/categories-loader';
 import { isMobile } from 'react-device-detect';
 import type { Category } from '@/types';
 import { checkIsMaintenanceModeComing } from '@/lib/constants';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
+import dynamic from 'next/dynamic';
+
+const CategoriesLoader = dynamic(() => import('@/components/ui/loaders/categories-loader'), { ssr: false });
 
 interface StickySidebarListCategoriesProps {
   notFound: boolean;
@@ -20,13 +22,8 @@ const StickySidebarListCategories: React.FC<
   StickySidebarListCategoriesProps
 > = ({ notFound, categories, loading, className }) => {
   const [underMaintenanceIsComing] = useAtom(checkIsMaintenanceModeComing);
-  // const [_isMobile, setMobile] = useState(false);
-
-  // useEffect(() => {
-  //   setMobile(isMobile);
-  // }, [setMobile]);
-
   const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
     setIsClient(true);
   }, []);

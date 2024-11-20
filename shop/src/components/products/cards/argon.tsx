@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic';
 //   { ssr: false },
 // );
 
-import usePrice from '@/lib/use-price';
+import usePrice from '@/lib/hooks/use-price';
 import { useTranslation } from 'next-i18next';
 // import { useModalAction } from '@/components/ui/modal/modal.context';
 // import { productPlaceholder } from '@/lib/placeholders';

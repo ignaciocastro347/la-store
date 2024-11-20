@@ -1,7 +1,7 @@
 import { Product, ProductType, DiscountType, FlashSale } from '@/types';
 import { productPlaceholder } from '@/lib/placeholders';
 import Image from 'next/image';
-import usePrice from '@/lib/use-price';
+import usePrice from '@/lib/hooks/use-price';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';

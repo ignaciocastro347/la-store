@@ -1,16 +1,12 @@
 import { Swiper, SwiperSlide, Navigation } from '@/components/ui/slider';
-import { Image } from '@/components/ui/image';
+import Image from 'next/image';
 import { productPlaceholder } from '@/lib/placeholders';
 import { useIsRTL } from '@/lib/locals';
 import { ArrowNext, ArrowPrev } from '@/components/icons';
 import { useTranslation } from 'next-i18next';
 import type { Banner } from '@/types';
-import { useReverse } from '@/lib/reverse';
-
-interface BannerProps {
-  banners: Banner[] | undefined;
-  layout?: string;
-}
+import { useReverse } from '@/lib/hooks/use-reverse';
+import { BannerProps } from './banner';
 
 const BannerShort: React.FC<BannerProps> = ({ banners }) => {
   const { t } = useTranslation('common');

@@ -7,7 +7,7 @@ import rangeMap from '@/lib/range-map';
 import ProductCard from '@/components/products/cards/card';
 import ErrorMessage from '@/components/ui/error-message';
 // import { useProducts } from '@/framework/product';
-import { PRODUCTS_PER_PAGE } from '@/framework/client/variables';
+import { PRODUCTS_PER_PAGE } from '@/framework/gql/client/variables';
 import type { Product } from '@/types';
 
 interface Props {

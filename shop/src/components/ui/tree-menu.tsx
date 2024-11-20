@@ -136,10 +136,11 @@ interface TreeMenuProps {
 }
 
 function TreeMenu({ items, className }: TreeMenuProps) {
+  console.log({items})
   return (
     <ul className={cn('text-xs', className)}>
       {items?.map((item: any) => (
-        <TreeMenuItem key={`${item.name}${item.slug}`} item={item} />
+        <TreeMenuItem key={item.id} item={item} />
       ))}
     </ul>
   );

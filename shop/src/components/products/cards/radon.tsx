@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { Routes } from '@/config/routes';
 import { Product } from '@/types';
 import { productPlaceholder } from '@/lib/placeholders';
-import usePrice from '@/lib/use-price';
+import usePrice from '@/lib/hooks/use-price';
 import { ExternalIcon } from '@/components/icons/external-icon';
 
 type RadonProps = {
